@@ -30,3 +30,17 @@ img{
     color: white;
 }
 /* HEADER END */
+
+/* MAIN */
+.main_container{
+    background-color: gray;
+}
+.movie_list{
+    padding: 20px 10px;
+}
+.movie{
+    background-color: green;
+    padding: 10px;
+    list-style-type: none;
+}
+/* MAIN END */
