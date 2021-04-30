@@ -44,8 +44,21 @@
         <main>
             <div class="main_container">
                 <ul class="movie_list">
-                    <li class="movie">
-                        test
+                    <li v-for="movie in popularMovie" class="movie">
+                        <ul class="movie_data">
+                            <li>
+                                Titolo: {{movie.title}}
+                            </li>
+                            <li>
+                                Titolo Originale: {{movie.original_title}}
+                            </li>
+                            <li>
+                                Lingua: {{movie.original_language}}
+                            </li>
+                            <li>
+                                Voto: {{movie.vote_average}}
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

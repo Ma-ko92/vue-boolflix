@@ -37,10 +37,19 @@ img{
 }
 .movie_list{
     padding: 20px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .movie{
     background-color: green;
     padding: 10px;
+    list-style-type: none;
+    margin: 10px;
+    width: 200px;
+    height: 300px;
+}
+.movie_data li{
     list-style-type: none;
 }
 /* MAIN END */
