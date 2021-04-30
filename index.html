@@ -54,7 +54,8 @@
                                 Titolo Originale: {{movie.original_title}}
                             </li>
                             <li>
-                                <img :src="'img/language-' + movie.original_language + '.svg'" :alt="movie.original_language">
+                                <img v-if="language.includes(movie.original_language)" :src="'img/language-' + movie.original_language + '.svg'" :alt="movie.original_language">
+                                <div v-else >Lingua: {{movie.original_language}}</div>
                             </li>
                             <li>
                                 Voto: {{movie.vote_average}}
@@ -74,8 +75,8 @@
                                 Titolo Originale: {{movie.original_title}}
                             </li>
                             <li>
-                                <img :src="'img/language-' + movie.original_language + '.svg'" :alt="movie.original_language">
-                                Lingua: {{movie.original_language}}
+                                <img v-if="language.includes(movie.original_language)" :src="'img/language-' + movie.original_language + '.svg'" :alt="movie.original_language">
+                                <div v-else >Lingua: {{movie.original_language}}</div>
                             </li>
                             <li>
                                 Voto: {{movie.vote_average}}

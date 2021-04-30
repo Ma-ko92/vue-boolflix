@@ -11,9 +11,28 @@ var app = new Vue({
 
         // Search Filter Movie
         filteredMovie: [],
+
+        // Language array
+        language:[
+            "en",
+            "de",
+            "it",
+            "ja",
+            "fr",
+            "es",
+            "zh",
+            "ru"
+
+        ],
     },
     
     methods: {
+        // this function cleans the array created by the search and re-displays popular movies.
+        // it's a kind of homepage call
+        home() {
+            return this.filteredMovie = [];
+        },
+
         // this function will start when the button is clicked, and will insert in an array
         // the list of objects containing the film searched by the user.
         startSearch()   {
@@ -22,16 +41,10 @@ var app = new Vue({
             .get('https://api.themoviedb.org/3/search/movie/?api_key=e205f242d3393f38b4790265be507509&language=it-IT',{params : {query : this.search }})
             .then((response) => {
                 this.filteredMovie = response.data.results;
+                // this refresh the search input.
                 this.search = '';  
             });
         },
-
-        // this function cleans the array created by the search and re-displays popular movies.
-        // it's a kind of homepage call
-        home() {
-            return this.filteredMovie = [];
-        }
-
     },
 
     // This get the popular movie
@@ -40,9 +53,6 @@ var app = new Vue({
         .get('https://api.themoviedb.org/3/movie/popular?api_key=e205f242d3393f38b4790265be507509&language=it-IT&page=1')
         .then((response) => {
             this.popularMovie = response.data.results;
-            console.log(this.popularMovie)
         });
     },
-
-    
 })
