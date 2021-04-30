@@ -43,8 +43,29 @@
         <!-- MAIN -->
         <main>
             <div class="main_container">
+                <!-- Popular movie set in homepage -->
                 <ul class="movie_list">
                     <li v-for="movie in popularMovie" v-if="search.length == 0" class="movie">
+                        <ul class="movie_data">
+                            <li>
+                                Titolo: {{movie.title}}
+                            </li>
+                            <li>
+                                Titolo Originale: {{movie.original_title}}
+                            </li>
+                            <li>
+                                Lingua: {{movie.original_language}}
+                            </li>
+                            <li>
+                                Voto: {{movie.vote_average}}
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- Searched movie -->
+                <ul class="movie_list">
+                    <li v-for="movie in filteredMovie" class="movie">
                         <ul class="movie_data">
                             <li>
                                 Titolo: {{movie.title}}
