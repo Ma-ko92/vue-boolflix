@@ -54,7 +54,7 @@
                                 Titolo Originale: {{movie.original_title}}
                             </li>
                             <li>
-                                Lingua: {{movie.original_language}}
+                                <img :src="'img/language-' + movie.original_language + '.svg'" :alt="movie.original_language">
                             </li>
                             <li>
                                 Voto: {{movie.vote_average}}
@@ -74,6 +74,7 @@
                                 Titolo Originale: {{movie.original_title}}
                             </li>
                             <li>
+                                <img :src="'img/language-' + movie.original_language + '.svg'" :alt="movie.original_language">
                                 Lingua: {{movie.original_language}}
                             </li>
                             <li>
