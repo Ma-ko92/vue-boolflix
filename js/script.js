@@ -67,6 +67,13 @@ var app = new Vue({
                 this.search = '';  
             });
         },
+
+        // Return a integer for excess
+        voteCalculator(vote) {
+            let thisVote = parseInt((vote / 2) + 1)
+            console.log(thisVote)
+            return thisVote
+        }
     },
 
     // This get the popular movie

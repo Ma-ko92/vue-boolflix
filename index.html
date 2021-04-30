@@ -61,7 +61,8 @@
                                 <div v-else >Lingua: {{movie.original_language}}</div>
                             </li>
                             <li>
-                                Voto: {{movie.vote_average}}
+                                <i v-for="star in voteCalculator(movie.vote_average)" class="fas fa-star"></i>
+                                <i v-for="star in (5 - voteCalculator(movie.vote_average))"class="far fa-star"></i>
                             </li>
                         </ul>
                     </li>
@@ -86,7 +87,7 @@
                                 <div v-else >Lingua: {{movie.original_language}}</div>
                             </li>
                             <li>
-                                Voto: {{movie.vote_average}}
+                                <i v-for="v in voteCalculator(movie.vote_average)" class="fas fa-star"></i>
                             </li>
                         </ul>
                     </li>
