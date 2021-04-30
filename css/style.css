@@ -25,6 +25,7 @@ img{
 }
 .title{
     color: red;
+    cursor: pointer;
 }
 .filter label{
     color: white;

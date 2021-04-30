@@ -33,7 +33,7 @@
                 <!-- Search filter -->
                 <div class="filter">
                     <label for="search">Cerca</label>
-                    <input v-model="search" id="search" type="text">
+                    <input v-model="search" @keyUp.enter="startSearch" id="search" type="text">
                     <button @click="startSearch">Vai</button>
                 </div>
             </div>
