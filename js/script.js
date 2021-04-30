@@ -24,6 +24,9 @@ var app = new Vue({
             "ru"
 
         ],
+
+        // Cover image
+        cover:"https://image.tmdb.org/t/p/w780"
     },
     
     methods: {
@@ -38,9 +41,28 @@ var app = new Vue({
         startSearch()   {
             // This get the movie searched.
             axios
-            .get('https://api.themoviedb.org/3/search/movie/?api_key=e205f242d3393f38b4790265be507509&language=it-IT',{params : {query : this.search }})
+            .get('https://api.themoviedb.org/3/search/movie/?api_key=e205f242d3393f38b4790265be507509&language=it-IT',{
+                params : {
+                    query : this.search
+                }
+            })
             .then((response) => {
                 this.filteredMovie = response.data.results;
+                // this refresh the search input.
+                this.search = '';  
+            });
+            
+            // This get the TvShow searched.
+            axios
+            .get('https://api.themoviedb.org/3/search/tv/?api_key=e205f242d3393f38b4790265be507509&language=it-IT',{
+                params : {
+                    query : this.search
+                }
+            })
+            .then((response) => {
+                let filteredTvShow = response.data.results;
+                this.filteredMovie = this.filteredMovie.concat(filteredTvShow)
+                console.log(this.filteredMovie)
                 // this refresh the search input.
                 this.search = '';  
             });

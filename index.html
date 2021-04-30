@@ -48,6 +48,9 @@
                     <li v-for="movie in popularMovie" v-if="filteredMovie.length == 0" class="movie">
                         <ul class="movie_data">
                             <li>
+                                <!-- <img :src="cover + movie.poster_path" alt=""> -->
+                            </li>
+                            <li>
                                 Titolo: {{movie.title}}
                             </li>
                             <li>
@@ -69,7 +72,11 @@
                     <li v-for="movie in filteredMovie" class="movie">
                         <ul class="movie_data">
                             <li>
-                                Titolo: {{movie.title}}
+                                <img :src="cover + movie.poster_path" alt="">
+                            </li>
+                            <li>
+                                <div v-if="movie.title">Titolo: {{movie.title}}</div>
+                                <div v-if="movie.name">Titolo: {{movie.name}}</div>
                             </li>
                             <li>
                                 Titolo Originale: {{movie.original_title}}
