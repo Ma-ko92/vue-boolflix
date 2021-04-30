@@ -26,7 +26,7 @@
         <header>
             <div class="header_container">
                 <!-- Heading -->
-                <div class="title">
+                <div class="title" @click="home">
                     <h1>BoolFlix</h1>
                 </div>
 
@@ -45,7 +45,7 @@
             <div class="main_container">
                 <!-- Popular movie set in homepage -->
                 <ul class="movie_list">
-                    <li v-for="movie in popularMovie" v-if="search.length == 0" class="movie">
+                    <li v-for="movie in popularMovie" v-if="filteredMovie.length == 0" class="movie">
                         <ul class="movie_data">
                             <li>
                                 Titolo: {{movie.title}}
