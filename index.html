@@ -94,12 +94,12 @@
                 <!-- Searched movie -->
                 <ul class="movie_list">
                     <li v-for="movie in filteredMovie" class="movie">
+                        <!-- Movie poster -->
+                        <div class="poster">
+                            <img v-if="movie.poster_path" :src="cover + movie.poster_path" alt="movie.poster_path">
+                            <img v-else src="img/default_poster.jpg"  alt="Image_not_found" >
+                        </div>
                         <ul class="movie_data">
-                            <!-- Movie poster -->
-                            <div class="poster">
-                                <img v-if="movie.poster_path" :src="cover + movie.poster_path" alt="movie.poster_path">
-                                <img v-else src="img/default_poster.jpg"  alt="Image_not_found" >
-                            </div>
                             <!-- Main Title -->
                             <li>
                                 <div>
@@ -120,6 +120,12 @@
                                     <span class="strong_text">Voto: </span>
                                     <i v-for="star in voteCalculator(movie.vote_average)" class="fas fa-star gold_star"></i>
                                     <i v-for="star in (rateCounter - voteCalculator(movie.vote_average))"class="far fa-star star"></i>
+                                </div>
+                            </li>
+                            <!-- Overview -->
+                            <li>
+                                <div>
+                                    <span class="strong_text">Overview: </span> {{movie.overview}}
                                 </div>
                             </li>
                              <!-- Language -->
