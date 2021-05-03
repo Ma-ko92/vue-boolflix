@@ -25,6 +25,9 @@ var app = new Vue({
 
         ],
 
+        // maximum rating range to compare with the current movie rating.
+        rateCounter: 5,
+
         // Cover image
         cover:"https://image.tmdb.org/t/p/w780"
     },
@@ -61,7 +64,7 @@ var app = new Vue({
             })
             .then((response) => {
                 let filteredTvShow = response.data.results;
-                this.filteredMovie = this.filteredMovie.concat(filteredTvShow)
+                this.filteredMovie = this.filteredMovie.concat(filteredTvShow);
                 console.log(this.filteredMovie)
                 // this refresh the search input.
                 this.search = '';  
@@ -70,9 +73,8 @@ var app = new Vue({
 
         // Return a integer for excess
         voteCalculator(vote) {
-            let thisVote = parseInt((vote / 2) + 1)
-            console.log(thisVote)
-            return thisVote
+            let thisVote = parseInt((vote / 2) + 1);
+            return thisVote;
         }
     },
 

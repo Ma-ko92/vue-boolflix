@@ -32,9 +32,9 @@
 
                 <!-- Search filter -->
                 <div class="filter">
-                    <label for="search">Cerca</label>
-                    <input v-model="search" @keyUp.enter="startSearch" id="search" type="text">
-                    <button @click="startSearch">Vai</button>
+                    <label for="search"></label>
+                    <input v-model="search" @keyUp.enter="startSearch" id="search" type="text" placeholder="Cerca...">
+                    <button @click="startSearch" class="ms_btn">Vai</button>
                 </div>
             </div>
         </header>
@@ -46,23 +46,32 @@
                 <!-- Popular movie set in homepage -->
                 <ul class="movie_list">
                     <li v-for="movie in popularMovie" v-if="filteredMovie.length == 0" class="movie">
+                        <div class="poster">
+                            <!-- <img :src="cover + movie.poster_path" alt=""> -->
+                        </div>
                         <ul class="movie_data">
                             <li>
-                                <!-- <img :src="cover + movie.poster_path" alt=""> -->
+                                <div class="movie_title">
+                                    <span class="strong_text">Titolo: </span> {{movie.title}}
+                                </div>
                             </li>
                             <li>
-                                Titolo: {{movie.title}}
+                                <div>
+                                    <span class="strong_text">Titolo Originale: </span> {{movie.original_title}}
+                                </div>
                             </li>
                             <li>
-                                Titolo Originale: {{movie.original_title}}
+                                <div class="lang_container">
+                                    <span v-if="language.includes(movie.original_language)" class="strong_text">Lingua: <img  :src="'img/language-' + movie.original_language + '.svg'" :alt="movie.original_language" class="flag"></span>
+                                    <div v-else ><span class="strong_text">Lingua: </span>{{movie.original_language}}</div>
+                                </div>
                             </li>
                             <li>
-                                <img v-if="language.includes(movie.original_language)" :src="'img/language-' + movie.original_language + '.svg'" :alt="movie.original_language">
-                                <div v-else >Lingua: {{movie.original_language}}</div>
-                            </li>
-                            <li>
-                                <i v-for="star in voteCalculator(movie.vote_average)" class="fas fa-star"></i>
-                                <i v-for="star in (5 - voteCalculator(movie.vote_average))"class="far fa-star"></i>
+                                <div class="vote_container">
+                                    <span class="strong_text">Voto: </span>
+                                    <i v-for="star in voteCalculator(movie.vote_average)" class="fas fa-star gold_star"></i>
+                                    <i v-for="star in (rateCounter - voteCalculator(movie.vote_average))"class="far fa-star star"></i>
+                                </div>
                             </li>
                         </ul>
                     </li>
@@ -73,7 +82,8 @@
                     <li v-for="movie in filteredMovie" class="movie">
                         <ul class="movie_data">
                             <li>
-                                <img :src="cover + movie.poster_path" alt="">
+                                <img v-if="movie.poster_path":src="cover + movie.poster_path" alt="">
+                                <div v-else>Image not found</div>
                             </li>
                             <li>
                                 <div v-if="movie.title">Titolo: {{movie.title}}</div>
@@ -88,6 +98,7 @@
                             </li>
                             <li>
                                 <i v-for="v in voteCalculator(movie.vote_average)" class="fas fa-star"></i>
+                                <i v-for="star in (rateCounter - voteCalculator(movie.vote_average))"class="far fa-star"></i>
                             </li>
                         </ul>
                     </li>
