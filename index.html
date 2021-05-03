@@ -79,7 +79,7 @@
                             <li>
                                 <div>
                                     <span class="strong_text">Overview: </span> {{movie.overview}}
-                                    <span v-else class="strong_text">Overview: Not Found</span> {{movie.overview}}
+                                    <span v-if="movie.overview.length == 0" class="strong_text">Not Found</span>
                                 </div>
                             </li>
                             <!-- Language -->
