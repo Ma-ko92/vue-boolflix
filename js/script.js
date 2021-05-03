@@ -75,7 +75,8 @@ var app = new Vue({
         voteCalculator(vote) {
             let thisVote = parseInt((vote / 2) + 1);
             return thisVote;
-        }
+        },
+
     },
 
     // This get the popular movie
