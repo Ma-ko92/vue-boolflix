@@ -47,30 +47,40 @@
                 <ul class="movie_list">
                     <li v-for="movie in popularMovie" v-if="filteredMovie.length == 0" class="movie">
                         <div class="poster">
-                            <!-- <img :src="cover + movie.poster_path" alt=""> -->
+                            <img :src="cover + movie.poster_path" alt="">
                         </div>
                         <ul class="movie_data">
+                            <!-- Main Title -->
                             <li>
-                                <div class="movie_title">
+                                <div>
                                     <span class="strong_text">Titolo: </span> {{movie.title}}
                                 </div>
                             </li>
+                            <!-- Original Title -->
                             <li>
                                 <div>
                                     <span class="strong_text">Titolo Originale: </span> {{movie.original_title}}
                                 </div>
                             </li>
-                            <li>
-                                <div class="lang_container">
-                                    <span v-if="language.includes(movie.original_language)" class="strong_text">Lingua: <img  :src="'img/language-' + movie.original_language + '.svg'" :alt="movie.original_language" class="flag"></span>
-                                    <div v-else ><span class="strong_text">Lingua: </span>{{movie.original_language}}</div>
-                                </div>
-                            </li>
+                            <!-- Vote -->
                             <li>
                                 <div class="vote_container">
                                     <span class="strong_text">Voto: </span>
                                     <i v-for="star in voteCalculator(movie.vote_average)" class="fas fa-star gold_star"></i>
                                     <i v-for="star in (rateCounter - voteCalculator(movie.vote_average))"class="far fa-star star"></i>
+                                </div>
+                            </li>
+                            <!-- Overview -->
+                            <li>
+                                <div>
+                                    <span class="strong_text">Overview: </span> {{movie.overview}}
+                                </div>
+                            </li>
+                            <!-- Language -->
+                            <li>
+                                <div class="lang_container">
+                                    <span v-if="language.includes(movie.original_language)" class="strong_text">Lingua: <img  :src="'img/language-' + movie.original_language + '.svg'" :alt="movie.original_language" class="flag"></span>
+                                    <div v-else ><span class="strong_text">Lingua: </span>{{movie.original_language}}</div>
                                 </div>
                             </li>
                         </ul>

@@ -73,6 +73,14 @@ img{
     width: 200px;
     height: 300px;
     position: relative;
+    overflow-y: auto;
+}
+.movie:hover .poster{
+    display: none;
+}
+.movie::-webkit-scrollbar {
+    width: 0;  
+    background: transparent;  
 }
 .lang_container span{
     display: flex;
@@ -85,11 +93,11 @@ img{
 .gold_star{
     color: yellow;
 }
-/* .poster{
+.poster{
     position: absolute;
     top: 0;
     left: 0;
-} */
+}
 .movie_data li{
     list-style-type: none;
     margin: 10px 0px;
