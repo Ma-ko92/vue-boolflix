@@ -75,7 +75,10 @@ img{
     position: relative;
     overflow-y: auto;
 }
-.movie:hover .poster{
+.no_scroll{
+    overflow: hidden;
+}
+.movie:hover .poster img{
     display: none;
 }
 .movie::-webkit-scrollbar {

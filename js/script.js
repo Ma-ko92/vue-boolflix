@@ -76,7 +76,7 @@ var app = new Vue({
             let thisVote = parseInt((vote / 2) + 1);
             return thisVote;
         },
-
+        
     },
 
     // This get the popular movie
@@ -87,4 +87,5 @@ var app = new Vue({
             this.popularMovie = response.data.results;
         });
     },
+    
 })
