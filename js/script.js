@@ -29,7 +29,7 @@ var app = new Vue({
         rateCounter: 5,
 
         // Cover image
-        cover:"https://image.tmdb.org/t/p/w780"
+        cover:"https://image.tmdb.org/t/p/w780",
     },
     
     methods: {
@@ -65,7 +65,6 @@ var app = new Vue({
             .then((response) => {
                 let filteredTvShow = response.data.results;
                 this.filteredMovie = this.filteredMovie.concat(filteredTvShow);
-                console.log(this.filteredMovie)
                 // this refresh the search input.
                 this.search = '';  
             });
