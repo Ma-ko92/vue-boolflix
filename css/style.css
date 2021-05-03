@@ -53,6 +53,12 @@ img{
 /* HEADER END */
 
 /* MAIN */
+.home_title{
+    padding: 10px;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
 .main_container{
     background-color: gray;
 }

@@ -43,6 +43,7 @@
         <!-- MAIN -->
         <main>
             <div class="main_container">
+                <h2 v-if="filteredMovie.length == 0" class="home_title">Film Popolari</h2>
                 <!-- Popular movie set in homepage -->
                 <ul class="movie_list">
                     <li v-for="movie in popularMovie" v-if="filteredMovie.length == 0" class="movie">
@@ -78,6 +79,7 @@
                             <li>
                                 <div>
                                     <span class="strong_text">Overview: </span> {{movie.overview}}
+                                    <span v-else class="strong_text">Overview: Not Found</span> {{movie.overview}}
                                 </div>
                             </li>
                             <!-- Language -->
@@ -90,6 +92,7 @@
                         </ul>
                     </li>
                 </ul>
+
 
                 <!-- Searched movie -->
                 <ul class="movie_list">
@@ -125,7 +128,8 @@
                             <!-- Overview -->
                             <li>
                                 <div>
-                                    <span class="strong_text">Overview: </span> {{movie.overview}}
+                                    <span v-if="movie.overview" class="strong_text">Overview: </span> {{movie.overview}}
+                                    <span  v-else class="strong_text">Overview: Not Found</span> {{movie.overview}}
                                 </div>
                             </li>
                              <!-- Language -->
